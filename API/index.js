@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
+// const bodyParser = require('body-parser');
 
 //Crear el servidor
 const app = express();
@@ -14,8 +15,13 @@ mongoose.connect('mongodb+srv://Javi:123@clusterdevjavi.2xtwz.mongodb.net/veteri
     useFindAndModify: false
 });
 
+//Habilitar al bodyParser de Express
+// no es necesario incluir la dependencia de body-Parser
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 //Habilitar rutas
-app.use('/', routes);
+ app.use('/', routes());
 
 //Puerto e iniciar el servidor
 app.listen(4000, () => {
