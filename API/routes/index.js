@@ -8,5 +8,11 @@ module.exports = function () {
     // Metodo POST
     router.post('/pacientes', pacienteController.nuevoPaciente);
 
+    // Obtener lista de pacientes desde la base de datos
+    router.get('/pacientes', pacienteController.listPacientes);
+
+    // Obtener pacientes por id
+    router.get('/pacientes/:id', pacienteController.getPaciente);
+    
     return router;
 }
