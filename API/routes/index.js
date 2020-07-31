@@ -6,7 +6,7 @@ module.exports = function () {
     
     //Agrega nuevos pacientes
     // Metodo POST
-    router.post('/pacientes', pacienteController.nuevoCliente);
+    router.post('/pacientes', pacienteController.nuevoPaciente);
 
     return router;
 }

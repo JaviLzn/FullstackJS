@@ -24,4 +24,5 @@ const pacientesSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('Paciente', pacientesSchema);
+/// El tercer parametro es el nombre de la collection en mongodb
+module.exports = mongoose.model('Paciente', pacientesSchema, 'pacientes');
