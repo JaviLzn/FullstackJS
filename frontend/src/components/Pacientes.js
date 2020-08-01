@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Pacientes = ({ citas }) => {
   //Antes de la respuesta de la API no hay citas
@@ -10,12 +12,12 @@ const Pacientes = ({ citas }) => {
       <div className='container'>
         <div className='row'>
           <div className='col-12 mb-5 d-flex justify-content-center'>
-            <a
-              href='#'
+            <Link
+              to={'/nueva'}
               className='btn btn-success text-uppercase py-2 px-5 font-weight-bold'
             >
               Crear cita
-            </a>
+            </Link>
           </div>
           <div className='col-md-8 mx-auto'>
             <div className='list-group'>
