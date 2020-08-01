@@ -11,11 +11,12 @@ import Cita from './components/Cita';
 function App() {
   const [citas, setCitas] = useState([]);
 
+  const consultaAPI = async () => {
+    const pacientes = await clienteAxios.get('/pacientes');
+    setCitas(pacientes.data);
+  };
+
   useEffect(() => {
-    const consultaAPI = async () => {
-      const pacientes = await clienteAxios.get('/pacientes');
-      setCitas(pacientes.data);
-    };
     consultaAPI();
     return () => {};
   }, []);
@@ -23,7 +24,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={Pacientes} />
+        <Route exact path='/'>
+          <Pacientes citas={citas} />
+        </Route>
         <Route exact path='/nueva' component={NuevaCita} />
         <Route exact path='/cita/:id' component={Cita} />
       </Switch>
